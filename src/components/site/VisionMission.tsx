@@ -73,7 +73,7 @@ export function Mission() {
             />
             <div className="glass-dark absolute inset-x-4 bottom-4 rounded-md border p-5 text-navy-foreground">
               <p className="eyebrow text-primary-glow">{m.label}</p>
-              <p className="mt-2 text-sm leading-relaxed text-navy-muted">{t.services.items.motors.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-navy-muted">{m.points[0]}</p>
             </div>
           </div>
         </Reveal>
