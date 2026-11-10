@@ -39,7 +39,7 @@ export function Vision() {
           </SectionLabel>
         </Reveal>
         <Reveal delay={0.08}>
-          <SectionTitle className="mt-8 max-w-4xl text-[clamp(2.2rem,5.2vw,4.6rem)]">{v.title}</SectionTitle>
+          <SectionTitle className="mt-8 max-w-4xl text-[clamp(2.2rem,5.2vw,4.6rem)] leading-[1.02] rtl:leading-[1.3]">{v.title}</SectionTitle>
         </Reveal>
         <div className="mt-12 grid max-w-5xl gap-8 border-t border-navy-line pt-8 text-lg leading-relaxed text-navy-muted md:grid-cols-2">
           <Reveal delay={0.12}>
