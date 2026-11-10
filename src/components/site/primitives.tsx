@@ -78,12 +78,12 @@ export function Logo({ tone = "light", className }: { tone?: "light" | "dark"; c
         alt=""
         width={655}
         height={445}
-        className="h-9 w-auto"
+        className="h-8 w-auto sm:h-9"
       />
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display-wide text-[0.95rem] font-extrabold uppercase tracking-[0.04em] rtl:text-base rtl:tracking-normal",
+            "font-display-wide whitespace-nowrap text-[0.8rem] font-extrabold uppercase tracking-[0.04em] sm:text-[0.95rem] rtl:text-base rtl:tracking-normal",
             tone === "light" ? "text-navy-foreground" : "text-foreground",
           )}
         >
@@ -91,7 +91,7 @@ export function Logo({ tone = "light", className }: { tone?: "light" | "dark"; c
         </span>
         <span
           className={cn(
-            "mt-1 text-[0.7rem] tracking-[0.18em] uppercase rtl:tracking-normal rtl:text-xs",
+            "mt-1 whitespace-nowrap text-[0.62rem] tracking-[0.18em] uppercase sm:text-[0.7rem] rtl:tracking-normal rtl:text-xs",
             tone === "light" ? "text-navy-muted" : "text-muted-foreground",
           )}
         >

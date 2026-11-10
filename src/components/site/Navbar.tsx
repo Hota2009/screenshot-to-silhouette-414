@@ -92,7 +92,7 @@ export function Navbar() {
             aria-label={t.meta.switchAria}
             className="flex h-10 items-center gap-2 rounded-md border border-navy-line px-3 text-sm text-navy-foreground transition-colors hover:bg-navy-foreground/10"
           >
-            <Languages className="size-4 text-primary-glow" aria-hidden />
+            <Languages className="hidden size-4 text-primary-glow sm:block" aria-hidden />
             <span lang={t.meta.dir === "rtl" ? "en" : "ar"}>{t.meta.switchLabel}</span>
           </button>
           <Button variant="electric" className="hidden h-10 px-5 md:inline-flex" onClick={() => go("contact")}>
@@ -119,7 +119,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "100svh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="overflow-hidden lg:hidden"
+            className="overflow-hidden bg-navy-deep lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 pb-10 pt-4 sm:px-8">
               {LINKS.map((id, i) => (
