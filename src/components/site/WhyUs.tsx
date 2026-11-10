@@ -36,7 +36,7 @@ export function WhyUs() {
 
         <div className="grid gap-px overflow-hidden rounded-lg border border-navy-line bg-navy-line sm:grid-cols-2 lg:col-span-7">
           {w.items.map((item, i) => {
-            const Icon = ICONS[i];
+            const Icon = ICONS[i] ?? HardHat;
             return (
               <Reveal key={item.title} delay={(i % 2) * 0.08} className="h-full">
                 <div className="group relative h-full bg-navy-deep p-8 transition-colors duration-500 hover:bg-navy-raised">

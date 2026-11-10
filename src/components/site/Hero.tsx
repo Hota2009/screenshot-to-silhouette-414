@@ -56,7 +56,7 @@ export function Hero() {
           {t.hero.eyebrow}
         </motion.p>
 
-        <h1 className="font-display-wide mt-6 text-[clamp(2.5rem,7.4vw,6.8rem)] font-extrabold uppercase leading-[0.94] rtl:leading-[1.2]">
+        <h1 className="font-display-wide mt-6 text-[clamp(1.85rem,7.9vw,6.8rem)] font-extrabold uppercase leading-[0.94] rtl:leading-[1.2]">
           {[t.hero.line1, t.hero.line2].map((line, i) => (
             <span key={line} className="block overflow-hidden pb-1">
               <motion.span

@@ -266,7 +266,7 @@
 }
 
 @utility glass-dark {
-  background: oklch(0.15 0.03 258 / 0.72);
+  background: oklch(0.14 0.03 258 / 0.88);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-color: var(--navy-line);
