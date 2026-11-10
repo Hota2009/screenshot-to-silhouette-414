@@ -25,7 +25,7 @@ export function Values() {
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {v.items.map((item, i) => {
-            const Icon = ICONS[i];
+            const Icon = ICONS[i] ?? BadgeCheck;
             return (
               <Reveal key={item.title} delay={i * 0.07} className="h-full">
                 <article
