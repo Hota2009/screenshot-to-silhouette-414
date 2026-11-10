@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All site copy lives in `src/content/site.ts` as typed `en`/`ar` objects (`ar: Content`), so both languages stay in sync at compile time.
+- Language state is a client-side context (`src/lib/i18n.tsx`) that sets `<html lang dir>`; use logical Tailwind utilities (`ps-`, `start-`, `rtl:`) instead of left/right so RTL works.
+- Field photos come from the company PDF and sit in `src/assets/work/<category>-<n>.jpg`; the gallery is built from that filename prefix via `import.meta.glob`.
+- The site is a single scrolling page (`/`) by design; sections are components in `src/components/site/`.
