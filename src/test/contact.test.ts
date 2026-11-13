@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { CONTACT } from "@/content/site";
+import { CONTACT, ENGINEERS } from "@/content/site";
 import { buildMailto, validateContact } from "@/lib/contact";
 
 const valid = {
@@ -13,9 +13,13 @@ const valid = {
 };
 
 describe("contact details", () => {
-  it("uses the unified engineer phone and email", () => {
-    expect(CONTACT.phone).toBe("0540950953");
-    expect(CONTACT.tel).toBe("+966540950953");
+  it("lists both engineers with their direct numbers and shared email", () => {
+    expect(ENGINEERS.map(({ name }) => name.en)).toEqual([
+      "Eng. Zain Al Abdeen",
+      "Eng. Mohamed El Gendy",
+    ]);
+    expect(ENGINEERS.map(({ phone }) => phone)).toEqual(["0540950953", "0569316336"]);
+    expect(ENGINEERS.every(({ email }) => email === CONTACT.email)).toBe(true);
     expect(CONTACT.email).toBe("Engine-expert@outlook.com");
   });
 });

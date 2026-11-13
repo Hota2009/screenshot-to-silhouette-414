@@ -20,10 +20,25 @@ export type ClientSectorId =
   | "diversified";
 
 export const CONTACT = {
-  phone: "0540950953",
-  tel: "+966540950953",
   email: "Engine-expert@outlook.com",
 } as const;
+
+export const ENGINEERS = [
+  {
+    id: "riyadh",
+    name: { en: "Eng. Zain Al Abdeen", ar: "المهندس زين العابدين" },
+    phone: "0540950953",
+    tel: "+966540950953",
+    email: CONTACT.email,
+  },
+  {
+    id: "dammam",
+    name: { en: "Eng. Mohamed El Gendy", ar: "المهندس محمد الجندي" },
+    phone: "0569316336",
+    tel: "+966569316336",
+    email: CONTACT.email,
+  },
+] as const;
 
 const en = {
   meta: {
@@ -226,8 +241,7 @@ const en = {
     index: "09",
     label: "Contact us",
     title: "Let's keep your equipment running.",
-    body: "Reach out directly to our engineer or send us the details of your request.",
-    engineer: "Eng. Zain Al Abdeen",
+    body: "Reach out directly to our engineers or send us the details of your request.",
     call: "Call",
     email: "Email",
     formTitle: "Send a request",
@@ -461,8 +475,7 @@ const ar: Content = {
     index: "09",
     label: "تواصل معنا",
     title: "لنحافظ على تشغيل معداتك.",
-    body: "تواصل مباشرة مع مهندسنا أو أرسل لنا تفاصيل طلبك.",
-    engineer: "المهندس زين العابدين",
+    body: "تواصل مباشرة مع مهندسينا أو أرسل لنا تفاصيل طلبك.",
     call: "اتصال",
     email: "بريد إلكتروني",
     formTitle: "أرسل طلبك",

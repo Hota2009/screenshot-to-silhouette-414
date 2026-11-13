@@ -3,7 +3,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
-import { CONTACT, SERVICE_ORDER, type ServiceId } from "@/content/site";
+import { ENGINEERS, CONTACT, SERVICE_ORDER, type ServiceId } from "@/content/site";
 import { buildMailto, validateContact, type ContactField } from "@/lib/contact";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,7 @@ const fieldBase =
   "w-full rounded-md border bg-background px-4 py-3 text-base text-foreground transition-[border-color,box-shadow] duration-300 placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15";
 
 export function Contact({ requestedService }: { requestedService: ServiceId | null }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const c = t.contact;
   const [form, setForm] = useState({
     name: "",
@@ -88,36 +88,38 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
           </Reveal>
 
           <div className="mt-10 grid gap-4">
-            <Reveal>
-              <article className="surface-navy relative overflow-hidden rounded-lg p-6 sm:p-7">
-                <div className="bg-blueprint absolute inset-0 opacity-50" />
-                <div className="relative">
-                  <h3 className="font-display-wide text-xl font-bold">{c.engineer}</h3>
-                  <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                    <a
-                      href={`tel:${CONTACT.tel}`}
-                      className="flex items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
-                    >
-                      <Phone className="size-4 text-primary-glow" aria-hidden />
-                      <span className="sr-only">{c.call}: </span>
-                      <span dir="ltr" className="tabular-nums">
-                        {CONTACT.phone}
-                      </span>
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT.email}`}
-                      className="flex min-w-0 items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
-                    >
-                      <Mail className="size-4 shrink-0 text-primary-glow" aria-hidden />
-                      <span className="sr-only">{c.email}: </span>
-                      <span dir="ltr" className="truncate">
-                        {CONTACT.email}
-                      </span>
-                    </a>
+            {ENGINEERS.map((engineer) => (
+              <Reveal key={engineer.id}>
+                <article className="surface-navy relative overflow-hidden rounded-lg p-6 sm:p-7">
+                  <div className="bg-blueprint absolute inset-0 opacity-50" />
+                  <div className="relative">
+                    <h3 className="font-display-wide text-xl font-bold">{engineer.name[lang]}</h3>
+                    <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                      <a
+                        href={`tel:${engineer.tel}`}
+                        className="flex items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
+                      >
+                        <Phone className="size-4 text-primary-glow" aria-hidden />
+                        <span className="sr-only">{c.call}: </span>
+                        <span dir="ltr" className="tabular-nums">
+                          {engineer.phone}
+                        </span>
+                      </a>
+                      <a
+                        href={`mailto:${engineer.email}`}
+                        className="flex min-w-0 items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
+                      >
+                        <Mail className="size-4 shrink-0 text-primary-glow" aria-hidden />
+                        <span className="sr-only">{c.email}: </span>
+                        <span dir="ltr" className="truncate">
+                          {engineer.email}
+                        </span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Reveal>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
 
