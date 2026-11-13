@@ -17,7 +17,10 @@ export const WORK_PHOTOS: WorkPhoto[] = Object.entries(files)
     return { id: name, src, category: category as WorkCategory };
   })
   .filter((p) => (ORDER as string[]).includes(p.category))
-  .sort((a, b) => ORDER.indexOf(a.category) - ORDER.indexOf(b.category) || a.id.localeCompare(b.id));
+  .filter((p) => p.id !== "pumps-020" && p.id !== "pumps-026")
+  .sort(
+    (a, b) => ORDER.indexOf(a.category) - ORDER.indexOf(b.category) || a.id.localeCompare(b.id),
+  );
 
 export const WORK_CATEGORIES = ORDER;
 

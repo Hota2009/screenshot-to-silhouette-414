@@ -41,8 +41,8 @@ export const Route = createFileRoute("/")({
           name: "Engine Experts Maintenance Establishment",
           alternateName: "خبراء المحرك للصيانة",
           contactPoint: [
-            { "@type": "ContactPoint", telephone: "+966583454844", email: "zahmed2030@outlook.sa", areaServed: "SA", contactType: "customer service", name: "Riyadh Branch" },
-            { "@type": "ContactPoint", telephone: "+966569316336", email: "Mohamedelgendy20@outlook.sa", areaServed: "SA", contactType: "customer service", name: "Dammam Branch" },
+            { "@type": "ContactPoint", telephone: "+966583454844", email: "Engine-expert@outlook.com", areaServed: "SA", contactType: "customer service", name: "Riyadh Branch" },
+            { "@type": "ContactPoint", telephone: "+966569316336", email: "Engine-expert@outlook.com", areaServed: "SA", contactType: "customer service", name: "Dammam Branch" },
           ],
         }),
       },

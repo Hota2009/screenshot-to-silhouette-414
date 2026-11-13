@@ -1,5 +1,16 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { ArrowUpRight, Cog, Droplets, Fan, Power, Snowflake, X, Zap, type LucideIcon } from "lucide-react";
+import {
+  ArrowUpRight,
+  Cog,
+  Droplets,
+  Fan,
+  Flame,
+  Power,
+  Snowflake,
+  X,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 import { useState } from "react";
 
 import ductingImg from "@/assets/service-ducting.jpg";
@@ -8,6 +19,7 @@ import hvacImg from "@/assets/service-hvac.jpg";
 import motorsImg from "@/assets/service-motors.jpg";
 import pumpsImg from "@/assets/service-pumps.jpg";
 import transformersImg from "@/assets/service-transformers.jpg";
+import firefightingImg from "@/assets/service-firefighting.jpeg";
 import { Button } from "@/components/ui/button";
 import { SERVICE_ORDER, SERVICE_WORK, type ServiceId } from "@/content/site";
 import { photosFor } from "@/content/work";
@@ -16,6 +28,7 @@ import { useI18n } from "@/lib/i18n";
 import { Reveal, SectionLabel, SectionTitle } from "./primitives";
 
 const MEDIA: Record<ServiceId, { img: string; Icon: LucideIcon }> = {
+  firefighting: { img: firefightingImg, Icon: Flame },
   motors: { img: motorsImg, Icon: Cog },
   pumps: { img: pumpsImg, Icon: Droplets },
   transformers: { img: transformersImg, Icon: Zap },

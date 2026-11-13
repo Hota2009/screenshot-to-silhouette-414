@@ -17,13 +17,13 @@ describe("branch contact details", () => {
   it("keeps the Riyadh branch phone and email from the profile", () => {
     const riyadh = BRANCHES.find((b) => b.id === "riyadh")!;
     expect(riyadh.phone).toBe("0583454844");
-    expect(riyadh.email).toBe("zahmed2030@outlook.sa");
+    expect(riyadh.email).toBe("Engine-expert@outlook.com");
   });
 
   it("keeps the Dammam branch phone and email from the profile", () => {
     const dammam = BRANCHES.find((b) => b.id === "dammam")!;
     expect(dammam.phone).toBe("0569316336");
-    expect(dammam.email).toBe("Mohamedelgendy20@outlook.sa");
+    expect(dammam.email).toBe("Engine-expert@outlook.com");
   });
 });
 
@@ -39,7 +39,7 @@ describe("contact form", () => {
     expect(r.ok).toBe(true);
     if (r.ok) {
       const href = buildMailto(r.data, { subject: "Pumps", lines: [] });
-      expect(href.startsWith("mailto:Mohamedelgendy20@outlook.sa?")).toBe(true);
+      expect(href.startsWith("mailto:Engine-expert@outlook.com?")).toBe(true);
     }
   });
 });

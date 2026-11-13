@@ -6,7 +6,8 @@
 
 export type Lang = "en" | "ar";
 
-export type ServiceId = "motors" | "pumps" | "transformers" | "generators" | "hvac" | "ducting";
+export type ServiceId =
+  "firefighting" | "motors" | "pumps" | "transformers" | "generators" | "hvac" | "ducting";
 export type WorkCategory = "pumps" | "generators" | "motors" | "transformers" | "hvac";
 export type ClientSectorId =
   | "contracting"
@@ -24,13 +25,13 @@ export const BRANCHES = [
     id: "riyadh",
     phone: "0583454844",
     tel: "+966583454844",
-    email: "zahmed2030@outlook.sa",
+    email: "Engine-expert@outlook.com",
   },
   {
     id: "dammam",
     phone: "0569316336",
     tel: "+966569316336",
-    email: "Mohamedelgendy20@outlook.sa",
+    email: "Engine-expert@outlook.com",
   },
 ] as const;
 
@@ -97,8 +98,7 @@ const en = {
     index: "03",
     label: "Our mission",
     title: "Our success is measured by our clients' satisfaction and trust.",
-    intro:
-      "We are committed to providing integrated maintenance and operation services built on:",
+    intro: "We are committed to providing integrated maintenance and operation services built on:",
     points: [
       "The latest global technologies in diagnostics and repair.",
       "Highly skilled and experienced engineering and technical staff.",
@@ -137,16 +137,22 @@ const en = {
   services: {
     index: "05",
     label: "Our services",
-    title: "Six disciplines. One accountable team.",
+    title: "Seven disciplines. One accountable team.",
     body: "From diagnostics to installation, we maintain the equipment your operations depend on.",
     learnMore: "Learn more",
     request: "Request this service",
     fromField: "From the field",
     close: "Close",
     items: {
+      firefighting: {
+        title: "Firefighting Systems",
+        short: "Installation, maintenance and repair of firefighting systems.",
+        long: "We install, maintain and repair firefighting systems to help keep essential fire protection equipment ready for service.",
+      },
       motors: {
         title: "Electric Motors Maintenance & Diagnostics",
-        short: "Fault diagnosis, maintenance and repair of electric motors to restore reliable performance.",
+        short:
+          "Fault diagnosis, maintenance and repair of electric motors to restore reliable performance.",
         long: "We diagnose and maintain electric motors, identifying faults and carrying out the repairs needed to keep them running reliably and efficiently — reducing unexpected breakdowns and extending their operational life.",
       },
       pumps: {
@@ -166,7 +172,8 @@ const en = {
       },
       hvac: {
         title: "Central Cooling & Heating Systems",
-        short: "Installation and maintenance of central cooling and heating units, including water chillers.",
+        short:
+          "Installation and maintenance of central cooling and heating units, including water chillers.",
         long: "We install, operate and maintain central air cooling and heating units, including water chillers, for efficient and dependable climate control.",
       },
       ducting: {
@@ -374,13 +381,18 @@ const ar: Content = {
   services: {
     index: "05",
     label: "أعمالنا وخدماتنا",
-    title: "ستة تخصصات. فريق واحد مسؤول.",
+    title: "سبعة تخصصات. فريق واحد مسؤول.",
     body: "من التشخيص إلى التركيب، نعتني بالمعدات التي تعتمد عليها عملياتك.",
     learnMore: "اعرف المزيد",
     request: "اطلب هذه الخدمة",
     fromField: "من الميدان",
     close: "إغلاق",
     items: {
+      firefighting: {
+        title: "أنظمة الحريق",
+        short: "تركيب وصيانة وإصلاح أنظمة الحريق.",
+        long: "نقوم بتركيب وصيانة وإصلاح أنظمة الحريق للمساعدة في الحفاظ على جاهزية معدات الحماية الأساسية.",
+      },
       motors: {
         title: "صيانة وتشخيص أعطال المحركات الكهربائية",
         short: "تشخيص الأعطال وصيانة وإصلاح المحركات الكهربائية لاستعادة أدائها الموثوق.",
@@ -516,6 +528,7 @@ const ar: Content = {
 export const CONTENT: Record<Lang, Content> = { en, ar };
 
 export const SERVICE_ORDER: ServiceId[] = [
+  "firefighting",
   "motors",
   "pumps",
   "transformers",
@@ -526,6 +539,7 @@ export const SERVICE_ORDER: ServiceId[] = [
 
 /** Which gallery category illustrates each service. */
 export const SERVICE_WORK: Record<ServiceId, WorkCategory> = {
+  firefighting: "pumps",
   motors: "motors",
   pumps: "pumps",
   transformers: "transformers",
