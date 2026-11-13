@@ -575,8 +575,8 @@ export const CLIENT_SECTORS: { id: ClientSectorId; name: Bi; clients: Bi[] }[] =
     id: "industrial",
     name: { en: "Industry & Manufacturing", ar: "قطاع الصناعة والمصانع" },
     clients: [
-      { en: "Al Jadawel", ar: "الجداول" },
-      { en: "The Foundry", ar: "المسبك" },
+      { en: "Al Jadawel Factory for Agricultural Machinery", ar: "الجداول الزراعية" },
+      { en: "Al Maslak Al Watani for Trade & Industry", ar: "المسبك للتجارة والصناعة" },
       { en: "Abdulkarim Al Rajhi Iron Factory", ar: "مصنع عبدالكريم الراجحي للحديد" },
       { en: "Watani Steel Factory", ar: "مصنع حديد وطني" },
       { en: "Al Sharq Plastic Factory", ar: "مصنع الشرق للبلاستيك" },
