@@ -19,23 +19,11 @@ export type ClientSectorId =
   | "agriculture"
   | "diversified";
 
-/* Contact details exactly as printed in the profile. */
-export const BRANCHES = [
-  {
-    id: "riyadh",
-    phone: "0583454844",
-    tel: "+966583454844",
-    email: "Engine-expert@outlook.com",
-  },
-  {
-    id: "dammam",
-    phone: "0569316336",
-    tel: "+966569316336",
-    email: "Engine-expert@outlook.com",
-  },
-] as const;
-
-export type BranchId = (typeof BRANCHES)[number]["id"];
+export const CONTACT = {
+  phone: "0540950953",
+  tel: "+966540950953",
+  email: "Engine-expert@outlook.com",
+} as const;
 
 const en = {
   meta: {
@@ -68,7 +56,6 @@ const en = {
     ctaPrimary: "Explore our services",
     ctaSecondary: "Contact our team",
     tags: ["Electric motors", "Pumps", "Transformers", "Generators & ATS", "HVAC"],
-    branches: "Riyadh · Dammam",
     scroll: "Scroll",
   },
   about: {
@@ -239,19 +226,17 @@ const en = {
     index: "09",
     label: "Contact us",
     title: "Let's keep your equipment running.",
-    body: "Reach our engineers directly in Riyadh or Dammam, or send us the details of your request.",
-    branch: "Branch",
-    engineer: "Engineer",
+    body: "Reach out directly to our engineer or send us the details of your request.",
+    engineer: "Eng. Zain Al Abdeen",
     call: "Call",
     email: "Email",
     formTitle: "Send a request",
-    formNote: "Sending opens your email app with your message addressed to the branch you choose.",
+    formNote: "Sending opens your email app with your message addressed to Engine Experts.",
     fields: {
       name: "Full name",
       company: "Company (optional)",
       phone: "Phone",
       email: "Email",
-      branch: "Branch",
       service: "Service",
       serviceAny: "General enquiry",
       message: "Message",
@@ -266,10 +251,6 @@ const en = {
       message: "Please add a short message (at least 10 characters).",
     },
   },
-  branches: {
-    riyadh: { city: "Riyadh", engineer: "Eng. Zain Al Abdeen" },
-    dammam: { city: "Dammam", engineer: "Eng. Mohamed El Gendy" },
-  } satisfies Record<BranchId, { city: string; engineer: string }>,
   workCategories: {
     pumps: "Pumps",
     generators: "Generators & ATS",
@@ -316,7 +297,6 @@ const ar: Content = {
     ctaPrimary: "استكشف خدماتنا",
     ctaSecondary: "تواصل مع فريقنا",
     tags: ["المحركات الكهربائية", "المضخات", "المحولات", "المولدات ولوحات ATS", "التكييف والتبريد"],
-    branches: "الرياض · الدمام",
     scroll: "مرّر",
   },
   about: {
@@ -481,19 +461,17 @@ const ar: Content = {
     index: "09",
     label: "تواصل معنا",
     title: "لنحافظ على تشغيل معداتك.",
-    body: "تواصل مباشرة مع مهندسينا في الرياض أو الدمام، أو أرسل لنا تفاصيل طلبك.",
-    branch: "الفرع",
-    engineer: "المهندس",
+    body: "تواصل مباشرة مع مهندسنا أو أرسل لنا تفاصيل طلبك.",
+    engineer: "المهندس زين العابدين",
     call: "اتصال",
     email: "بريد إلكتروني",
     formTitle: "أرسل طلبك",
-    formNote: "عند الإرسال يُفتح تطبيق البريد لديك برسالة موجهة إلى الفرع الذي تختاره.",
+    formNote: "عند الإرسال يُفتح تطبيق البريد لديك برسالة موجهة إلى خبراء المحرك.",
     fields: {
       name: "الاسم الكامل",
       company: "الشركة (اختياري)",
       phone: "رقم الجوال",
       email: "البريد الإلكتروني",
-      branch: "الفرع",
       service: "الخدمة",
       serviceAny: "استفسار عام",
       message: "الرسالة",
@@ -507,10 +485,6 @@ const ar: Content = {
       email: "يرجى إدخال بريد إلكتروني صحيح.",
       message: "يرجى كتابة رسالة قصيرة (10 أحرف على الأقل).",
     },
-  },
-  branches: {
-    riyadh: { city: "فرع الرياض", engineer: "المهندس زين العابدين" },
-    dammam: { city: "فرع الدمام", engineer: "المهندس محمد الجندي" },
   },
   workCategories: {
     pumps: "المضخات",

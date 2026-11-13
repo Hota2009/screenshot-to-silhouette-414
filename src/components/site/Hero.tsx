@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 
 import heroImg from "@/assets/hero-engine-hall.jpg";
@@ -109,11 +109,7 @@ export function Hero() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-6 text-sm text-navy-muted">
-            <span className="flex items-center gap-2">
-              <MapPin className="size-4 text-primary-glow" aria-hidden />
-              {t.hero.branches}
-            </span>
+          <div className="flex items-center justify-end gap-6 text-sm text-navy-muted">
             <button
               type="button"
               onClick={() => scrollToId("about")}

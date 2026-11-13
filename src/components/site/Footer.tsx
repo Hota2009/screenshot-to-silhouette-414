@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { BRANCHES } from "@/content/site";
+import { CONTACT } from "@/content/site";
 import { useI18n } from "@/lib/i18n";
 
 import { Logo, scrollToId } from "./primitives";
@@ -35,25 +35,32 @@ export function Footer() {
             </ul>
           </nav>
           <div className="grid gap-6 text-sm md:col-span-4">
-            {BRANCHES.map((b) => (
-              <div key={b.id}>
-                <p className="eyebrow text-primary-glow">{t.branches[b.id].city}</p>
-                <p className="mt-2 font-semibold">{t.branches[b.id].engineer}</p>
-                <a href={`tel:${b.tel}`} dir="ltr" className="mt-1 block text-navy-muted hover:text-navy-foreground rtl:text-right">
-                  {b.phone}
-                </a>
-                <a href={`mailto:${b.email}`} dir="ltr" className="block text-navy-muted hover:text-navy-foreground rtl:text-right">
-                  {b.email}
-                </a>
-              </div>
-            ))}
+            <div>
+              <p className="font-semibold">{t.contact.engineer}</p>
+              <a
+                href={`tel:${CONTACT.tel}`}
+                dir="ltr"
+                className="mt-1 block text-navy-muted hover:text-navy-foreground rtl:text-right"
+              >
+                {CONTACT.phone}
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                dir="ltr"
+                className="block text-navy-muted hover:text-navy-foreground rtl:text-right"
+              >
+                {CONTACT.email}
+              </a>
+            </div>
           </div>
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-navy-line pt-6 text-xs text-navy-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {t.brand.legal}. {t.footer.rights}
           </p>
-          <p className="eyebrow">{t.hero.line1} {t.hero.line2}</p>
+          <p className="eyebrow">
+            {t.hero.line1} {t.hero.line2}
+          </p>
         </div>
       </div>
     </footer>

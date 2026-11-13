@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { BRANCHES, type BranchId } from "@/content/site";
+import { CONTACT } from "@/content/site";
 
 export const contactSchema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -10,7 +10,6 @@ export const contactSchema = z.object({
     .trim()
     .regex(/^\+?[0-9][0-9\s-]{7,15}$/),
   email: z.string().trim().email().max(255),
-  branch: z.enum(["riyadh", "dammam"]),
   service: z.string().trim().max(160).optional().default(""),
   message: z.string().trim().min(10).max(2000),
 });
@@ -30,12 +29,8 @@ export function validateContact(input: ContactInput) {
   return { ok: false as const, fields };
 }
 
-export function branchEmail(branch: BranchId) {
-  return BRANCHES.find((b) => b.id === branch)!.email;
-}
-
-/** Builds the mailto: link that opens the visitor's email app, addressed to the chosen branch. */
+/** Builds the mailto: link that opens the visitor's email app, addressed to Engine Experts. */
 export function buildMailto(data: ContactData, labels: { subject: string; lines: string[] }) {
   const body = [...labels.lines, "", data.message].join("\n");
-  return `mailto:${branchEmail(data.branch)}?subject=${encodeURIComponent(labels.subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${CONTACT.email}?subject=${encodeURIComponent(labels.subject)}&body=${encodeURIComponent(body)}`;
 }

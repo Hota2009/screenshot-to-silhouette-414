@@ -1,9 +1,9 @@
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, Phone, Send } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
-import { BRANCHES, SERVICE_ORDER, type BranchId, type ServiceId } from "@/content/site";
+import { CONTACT, SERVICE_ORDER, type ServiceId } from "@/content/site";
 import { buildMailto, validateContact, type ContactField } from "@/lib/contact";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,6 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
     company: "",
     phone: "",
     email: "",
-    branch: "riyadh" as BranchId,
     service: "" as ServiceId | "",
     message: "",
   });
@@ -58,7 +57,6 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
         d.company ? `${c.fields.company}: ${d.company}` : "",
         `${c.fields.phone}: ${d.phone}`,
         `${c.fields.email}: ${d.email}`,
-        `${c.fields.branch}: ${t.branches[d.branch].city}`,
         `${c.fields.service}: ${serviceTitle}`,
       ].filter(Boolean),
     });
@@ -90,42 +88,36 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
           </Reveal>
 
           <div className="mt-10 grid gap-4">
-            {BRANCHES.map((b, i) => (
-              <Reveal key={b.id} delay={i * 0.08}>
-                <article className="surface-navy relative overflow-hidden rounded-lg p-6 sm:p-7">
-                  <div className="bg-blueprint absolute inset-0 opacity-50" />
-                  <div className="relative">
-                    <p className="eyebrow flex items-center gap-2 text-primary-glow">
-                      <MapPin className="size-3.5" aria-hidden />
-                      {t.branches[b.id].city}
-                    </p>
-                    <h3 className="font-display-wide mt-3 text-xl font-bold">{t.branches[b.id].engineer}</h3>
-                    <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                      <a
-                        href={`tel:${b.tel}`}
-                        className="flex items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
-                      >
-                        <Phone className="size-4 text-primary-glow" aria-hidden />
-                        <span className="sr-only">{c.call}: </span>
-                        <span dir="ltr" className="tabular-nums">
-                          {b.phone}
-                        </span>
-                      </a>
-                      <a
-                        href={`mailto:${b.email}`}
-                        className="flex min-w-0 items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
-                      >
-                        <Mail className="size-4 shrink-0 text-primary-glow" aria-hidden />
-                        <span className="sr-only">{c.email}: </span>
-                        <span dir="ltr" className="truncate">
-                          {b.email}
-                        </span>
-                      </a>
-                    </div>
+            <Reveal>
+              <article className="surface-navy relative overflow-hidden rounded-lg p-6 sm:p-7">
+                <div className="bg-blueprint absolute inset-0 opacity-50" />
+                <div className="relative">
+                  <h3 className="font-display-wide text-xl font-bold">{c.engineer}</h3>
+                  <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                    <a
+                      href={`tel:${CONTACT.tel}`}
+                      className="flex items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
+                    >
+                      <Phone className="size-4 text-primary-glow" aria-hidden />
+                      <span className="sr-only">{c.call}: </span>
+                      <span dir="ltr" className="tabular-nums">
+                        {CONTACT.phone}
+                      </span>
+                    </a>
+                    <a
+                      href={`mailto:${CONTACT.email}`}
+                      className="flex min-w-0 items-center gap-3 rounded-md border border-navy-line bg-navy-foreground/5 px-4 py-3 text-sm transition-colors hover:border-primary hover:bg-primary/15"
+                    >
+                      <Mail className="size-4 shrink-0 text-primary-glow" aria-hidden />
+                      <span className="sr-only">{c.email}: </span>
+                      <span dir="ltr" className="truncate">
+                        {CONTACT.email}
+                      </span>
+                    </a>
                   </div>
-                </article>
-              </Reveal>
-            ))}
+                </div>
+              </article>
+            </Reveal>
           </div>
         </div>
 
@@ -179,7 +171,11 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
                   value={form.phone}
                   maxLength={17}
                   onChange={(e) => set("phone", e.target.value)}
-                  className={cn(fieldBase, "rtl:text-right", errors.has("phone") && "border-destructive")}
+                  className={cn(
+                    fieldBase,
+                    "rtl:text-right",
+                    errors.has("phone") && "border-destructive",
+                  )}
                 />
                 {err("phone")}
               </div>
@@ -195,35 +191,14 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
                   value={form.email}
                   maxLength={255}
                   onChange={(e) => set("email", e.target.value)}
-                  className={cn(fieldBase, "rtl:text-right", errors.has("email") && "border-destructive")}
+                  className={cn(
+                    fieldBase,
+                    "rtl:text-right",
+                    errors.has("email") && "border-destructive",
+                  )}
                 />
                 {err("email")}
               </div>
-
-              <fieldset className="sm:col-span-2">
-                <legend className="mb-2 block text-sm font-medium">{c.fields.branch}</legend>
-                <div className="grid grid-cols-2 gap-2">
-                  {BRANCHES.map((b) => (
-                    <label
-                      key={b.id}
-                      className={cn(
-                        "flex cursor-pointer items-center gap-3 rounded-md border px-4 py-3 text-sm transition-[border-color,background-color] duration-300",
-                        form.branch === b.id ? "border-primary bg-accent" : "hover:border-foreground/30",
-                      )}
-                    >
-                      <input
-                        type="radio"
-                        name="branch"
-                        value={b.id}
-                        checked={form.branch === b.id}
-                        onChange={() => set("branch", b.id)}
-                        className="accent-primary"
-                      />
-                      {t.branches[b.id].city}
-                    </label>
-                  ))}
-                </div>
-              </fieldset>
 
               <div className="sm:col-span-2">
                 <label htmlFor="cf-service" className="mb-2 block text-sm font-medium">
@@ -255,7 +230,11 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
                   value={form.message}
                   placeholder={c.fields.messagePh}
                   onChange={(e) => set("message", e.target.value)}
-                  className={cn(fieldBase, "resize-y", errors.has("message") && "border-destructive")}
+                  className={cn(
+                    fieldBase,
+                    "resize-y",
+                    errors.has("message") && "border-destructive",
+                  )}
                 />
                 {err("message")}
               </div>

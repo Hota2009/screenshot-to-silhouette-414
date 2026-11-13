@@ -16,9 +16,10 @@ import { Mission, Vision } from "@/components/site/VisionMission";
 import { WhyUs } from "@/components/site/WhyUs";
 import type { ServiceId } from "@/content/site";
 
-const TITLE = "Engine Experts for Maintenance — Electrical & Mechanical Maintenance in Saudi Arabia";
+const TITLE =
+  "Engine Experts for Maintenance — Electrical & Mechanical Maintenance in Saudi Arabia";
 const DESCRIPTION =
-  "Engine Experts delivers integrated maintenance and operation of electric motors, pumps, transformers, generators & ATS panels and HVAC systems, with branches in Riyadh and Dammam.";
+  "Engine Experts delivers integrated maintenance and operation of electric motors, pumps, transformers, generators & ATS panels and HVAC systems across Saudi Arabia.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,8 +42,14 @@ export const Route = createFileRoute("/")({
           name: "Engine Experts Maintenance Establishment",
           alternateName: "خبراء المحرك للصيانة",
           contactPoint: [
-            { "@type": "ContactPoint", telephone: "+966583454844", email: "Engine-expert@outlook.com", areaServed: "SA", contactType: "customer service", name: "Riyadh Branch" },
-            { "@type": "ContactPoint", telephone: "+966569316336", email: "Engine-expert@outlook.com", areaServed: "SA", contactType: "customer service", name: "Dammam Branch" },
+            {
+              "@type": "ContactPoint",
+              telephone: "+966540950953",
+              email: "Engine-expert@outlook.com",
+              areaServed: "SA",
+              contactType: "customer service",
+              name: "Customer Service",
+            },
           ],
         }),
       },
