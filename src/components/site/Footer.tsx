@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { CONTACT } from "@/content/site";
+import { CONTACT, ENGINEERS } from "@/content/site";
 import { useI18n } from "@/lib/i18n";
 
 import { Logo, scrollToId } from "./primitives";
@@ -10,7 +10,7 @@ import { Logo, scrollToId } from "./primitives";
 const LINKS = ["about", "vision", "values", "services", "clients", "projects", "contact"] as const;
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <footer className="bg-navy-deep text-navy-foreground">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
@@ -34,24 +34,27 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-          <div className="grid gap-6 text-sm md:col-span-4">
-            <div>
-              <p className="font-semibold">{t.contact.engineer}</p>
-              <a
-                href={`tel:${CONTACT.tel}`}
-                dir="ltr"
-                className="mt-1 block text-navy-muted hover:text-navy-foreground rtl:text-right"
-              >
-                {CONTACT.phone}
-              </a>
-              <a
-                href={`mailto:${CONTACT.email}`}
-                dir="ltr"
-                className="block text-navy-muted hover:text-navy-foreground rtl:text-right"
-              >
-                {CONTACT.email}
-              </a>
-            </div>
+          <div className="grid gap-3 text-sm md:col-span-4">
+            <p className="eyebrow text-navy-muted">{t.contact.label}</p>
+            {ENGINEERS.map((engineer) => (
+              <div key={engineer.id}>
+                <p className="font-semibold">{engineer.name[lang]}</p>
+                <a
+                  href={`tel:${engineer.tel}`}
+                  dir="ltr"
+                  className="mt-1 block text-navy-muted hover:text-navy-foreground rtl:text-right"
+                >
+                  {engineer.phone}
+                </a>
+              </div>
+            ))}
+            <a
+              href={`mailto:${CONTACT.email}`}
+              dir="ltr"
+              className="block text-navy-muted hover:text-navy-foreground rtl:text-right"
+            >
+              {CONTACT.email}
+            </a>
           </div>
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-navy-line pt-6 text-xs text-navy-muted sm:flex-row sm:items-center sm:justify-between">
