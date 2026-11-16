@@ -41,6 +41,125 @@ export const ENGINEERS = [
 ] as const;
 
 const en = {
+  seo: {
+    home: {
+      title: "Engine Experts | Electrical & Mechanical Maintenance in Saudi Arabia",
+      description:
+        "Engine Experts provides motor, pump, transformer and generator maintenance, ATS programming, firefighting systems and HVAC services in Saudi Arabia.",
+    },
+    region: "Saudi Arabia",
+    services: {
+      firefighting: {
+        title: "Firefighting System Installation & Maintenance | Engine Experts",
+        description:
+          "Installation, maintenance and repair of firefighting systems in Saudi Arabia. Explore the service scope and contact Engine Experts for a quotation.",
+      },
+      motors: {
+        title: "Electric Motor Diagnostics & Repair | Engine Experts",
+        description:
+          "Electric motor fault diagnosis, maintenance and repair in Saudi Arabia. Share your equipment details with Engine Experts to discuss your service needs.",
+      },
+      pumps: {
+        title: "Pump Maintenance & Repair | Engine Experts",
+        description:
+          "Maintenance and repair of pumps for water, firefighting and process systems in Saudi Arabia. Contact Engine Experts to discuss your equipment and request a quote.",
+      },
+      transformers: {
+        title: "Transformer Maintenance & Oil Filtration | Engine Experts",
+        description:
+          "Transformer maintenance, oil filtration and efficiency improvement in Saudi Arabia. Discuss your transformer requirements with the Engine Experts team.",
+      },
+      generators: {
+        title: "Generator Maintenance & ATS Programming | Engine Experts",
+        description:
+          "Generator maintenance and automatic transfer switch (ATS) panel programming in Saudi Arabia. Contact Engine Experts to discuss your backup power requirements.",
+      },
+      hvac: {
+        title: "Central HVAC & Chiller Maintenance | Engine Experts",
+        description:
+          "Installation, operation and maintenance of central cooling, heating and water chiller systems in Saudi Arabia. Request a quotation from Engine Experts.",
+      },
+      ducting: {
+        title: "HVAC Ducting & Foundation Works | Engine Experts",
+        description:
+          "Execution and maintenance of HVAC ducting and foundation works in Saudi Arabia. Share your project requirements with Engine Experts for a quotation.",
+      },
+    },
+  },
+  servicePage: {
+    scope: "Service scope",
+    related: "Related services",
+    quote: "Request a quotation",
+    prepare: "Help us understand your requirement",
+    prepareBody:
+      "Include the equipment type, available nameplate details, the fault or maintenance requirement, and site information in your enquiry so our team can discuss the scope with you.",
+    gallery: "Field photographs from the company profile",
+    items: {
+      firefighting: {
+        title: "Firefighting System Installation, Maintenance & Repair",
+        steps: [
+          "Installation of firefighting systems, alongside maintenance of existing systems and repair of faulty equipment. Specify whether your enquiry concerns a new installation or equipment already in service.",
+          "For an existing system, describe the affected equipment and the issue observed. If the request concerns a pump, include its details so the team can discuss pump maintenance as part of your enquiry.",
+        ],
+        related:
+          "Pumps and electric motors may form part of the equipment supporting a firefighting system. These services help you identify the relevant scope.",
+      },
+      motors: {
+        title: "Electric Motor Diagnostics, Maintenance & Repair",
+        steps: [
+          "Fault diagnosis to identify electric motor problems, followed by maintenance and the repairs needed to support reliable operation.",
+          "Tell us which equipment the motor drives and describe the fault or maintenance requirement. Include available motor nameplate information to help define the enquiry.",
+        ],
+        related:
+          "Motor maintenance can accompany pump work. Generator maintenance addresses another part of a facility’s electrical equipment.",
+      },
+      pumps: {
+        title: "Pump Maintenance & Repair",
+        steps: [
+          "Maintenance and repair of pumps used in water, firefighting and process systems. The scope covers keeping existing pumping equipment in service and addressing faults.",
+          "Identify the pump’s application and describe the issue or planned maintenance. Available pump and drive-motor details help the team understand the equipment involved.",
+        ],
+        related:
+          "A pump enquiry may also involve its electric motor or the firefighting system it serves.",
+      },
+      transformers: {
+        title: "Transformer Maintenance & Oil Filtration",
+        steps: [
+          "Transformer maintenance, oil filtration and work to improve operating efficiency. These activities support an essential part of the electrical infrastructure.",
+          "State whether you need transformer maintenance, oil filtration or a review of an efficiency concern. Share available transformer details and its current condition when requesting a quotation.",
+        ],
+        related:
+          "Transformers support electrical supply, while generators and ATS panels support backup power. Motor maintenance covers equipment supplied by that infrastructure.",
+      },
+      generators: {
+        title: "Generator Maintenance & ATS Panel Programming",
+        steps: [
+          "Maintenance of generators and programming of automatic transfer switch (ATS) panels to support backup-power readiness and continuity of operations.",
+          "Specify whether the requirement concerns the generator, the ATS panel or both. Describe the operating issue and include available equipment details so the scope can be discussed.",
+        ],
+        related:
+          "Transformer maintenance complements work on electrical supply infrastructure. Electric motor diagnostics cover other electrical equipment in the facility.",
+      },
+      hvac: {
+        title: "Central HVAC & Chiller Installation and Maintenance",
+        steps: [
+          "Installation, operation and maintenance of central cooling and heating units, including water chillers. Specify the unit type and whether you need installation or service for an existing system.",
+          "Describe the operating or maintenance requirement and share available equipment details. For projects involving air distribution, identify any accompanying ducting requirements.",
+        ],
+        related:
+          "Ducting supports air distribution, while pump maintenance may be relevant to water-based cooling equipment.",
+      },
+      ducting: {
+        title: "HVAC Ducting & Foundation Works",
+        steps: [
+          "Execution and maintenance of ducting and HVAC foundation works that support air distribution and air-conditioning equipment.",
+          "Clarify whether the requirement is new ducting or foundation work, or maintenance of existing work. Include the associated HVAC equipment and available site details.",
+        ],
+        related:
+          "Central HVAC services cover the units associated with the ductwork. Electric motor maintenance may also be relevant to associated air-moving equipment.",
+      },
+    },
+  },
   meta: {
     dir: "ltr" as "ltr" | "rtl",
     switchLabel: "العربية",
@@ -281,6 +400,124 @@ const en = {
 export type Content = typeof en;
 
 const ar: Content = {
+  seo: {
+    home: {
+      title: "خبراء المحرك للصيانة | صيانة كهربائية وميكانيكية في السعودية",
+      description:
+        "خدمات صيانة المحركات والمضخات والمحولات والمولدات وبرمجة ATS وأنظمة الحريق والتكييف في السعودية. تعرّف على خدمات خبراء المحرك وتواصل لطلب عرض سعر.",
+    },
+    region: "المملكة العربية السعودية",
+    services: {
+      firefighting: {
+        title: "تركيب وصيانة أنظمة مكافحة الحريق | خبراء المحرك",
+        description:
+          "تركيب وصيانة وإصلاح أنظمة مكافحة الحريق في السعودية. تعرّف على نطاق الخدمة لدى خبراء المحرك وأرسل متطلبات منشأتك لطلب عرض سعر.",
+      },
+      motors: {
+        title: "تشخيص وصيانة وإصلاح المحركات الكهربائية | خبراء المحرك",
+        description:
+          "تشخيص أعطال المحركات الكهربائية وصيانتها وإصلاحها في السعودية. شارك بيانات المحرك ووصف المشكلة مع فريق خبراء المحرك لمناقشة احتياجك.",
+      },
+      pumps: {
+        title: "صيانة وإصلاح المضخات | خبراء المحرك للصيانة",
+        description:
+          "صيانة وإصلاح مضخات المياه والإطفاء والعمليات في السعودية. تعرّف على الخدمة وتواصل مع خبراء المحرك ببيانات المضخة واحتياج الصيانة لطلب عرض سعر.",
+      },
+      transformers: {
+        title: "صيانة المحولات وفلترة الزيت | خبراء المحرك",
+        description:
+          "صيانة المحولات وفلترة الزيت والعمل على تحسين الكفاءة في السعودية. أرسل بيانات المحول واحتياج الصيانة لفريق خبراء المحرك لطلب عرض سعر.",
+      },
+      generators: {
+        title: "صيانة المولدات وبرمجة لوحات ATS | خبراء المحرك",
+        description:
+          "صيانة المولدات وبرمجة لوحات التحويل التلقائي ATS في السعودية لدعم جاهزية الطاقة الاحتياطية. ناقش متطلبات منشأتك مع فريق خبراء المحرك.",
+      },
+      hvac: {
+        title: "صيانة التكييف المركزي والتشيلرات | خبراء المحرك",
+        description:
+          "تركيب وتشغيل وصيانة أنظمة التبريد والتدفئة المركزية والتشيلرات في السعودية. أرسل متطلبات منشأتك إلى خبراء المحرك واطلب عرض سعر.",
+      },
+      ducting: {
+        title: "تنفيذ وصيانة الدكت وقواعد التكييف | خبراء المحرك",
+        description:
+          "تنفيذ وصيانة الدكت وقواعد التكييف في السعودية لدعم توزيع الهواء ومعدات التكييف. تواصل مع خبراء المحرك بمتطلبات مشروعك لطلب عرض سعر.",
+      },
+    },
+  },
+  servicePage: {
+    scope: "نطاق الخدمة",
+    related: "خدمات مرتبطة",
+    quote: "اطلب عرض سعر",
+    prepare: "معلومات تساعدنا على فهم طلبك",
+    prepareBody:
+      "اذكر نوع المعدة وبيانات لوحة المواصفات المتاحة، ووصف العطل أو احتياج الصيانة، ومعلومات الموقع، ليتمكن فريقنا من مناقشة نطاق العمل معك.",
+    gallery: "صور أعمال من ملف الشركة",
+    items: {
+      firefighting: {
+        title: "تركيب وصيانة وإصلاح أنظمة مكافحة الحريق",
+        steps: [
+          "نقدم تركيب أنظمة مكافحة الحريق، وصيانة الأنظمة القائمة وإصلاح معداتها. وضّح في طلبك ما إذا كنت تحتاج إلى تركيب جديد أو صيانة معدات تعمل بالفعل.",
+          "للأنظمة القائمة، اذكر المعدة المعنية والمشكلة التي لاحظتها. وإذا كان الطلب يتعلق بمضخة، أرفق بياناتها لمناقشة احتياج صيانتها ضمن نطاق العمل.",
+        ],
+        related:
+          "قد تكون المضخات والمحركات الكهربائية جزءًا من المعدات التي تخدم نظام مكافحة الحريق؛ ويمكنك الاطلاع على خدماتها لتحديد نطاق طلبك.",
+      },
+      motors: {
+        title: "تشخيص وصيانة وإصلاح المحركات الكهربائية",
+        steps: [
+          "نشخّص أعطال المحركات الكهربائية وننفذ أعمال الصيانة والإصلاح اللازمة لدعم كفاءة التشغيل وموثوقيته.",
+          "اذكر المعدة التي يشغّلها المحرك ووصف العطل أو احتياج الصيانة. تساعد بيانات لوحة المحرك المتاحة في تحديد متطلبات الخدمة.",
+        ],
+        related:
+          "قد تتكامل صيانة المحركات مع أعمال المضخات، بينما تغطي صيانة المولدات جانبًا آخر من معدات المنشأة الكهربائية.",
+      },
+      pumps: {
+        title: "صيانة وإصلاح المضخات",
+        steps: [
+          "نقدم صيانة وإصلاح المضخات المستخدمة في أنظمة المياه والإطفاء والعمليات، لدعم استمرار تشغيل المعدات القائمة ومعالجة أعطالها.",
+          "حدّد استخدام المضخة ووصف المشكلة أو احتياج الصيانة الدورية. تساعد بيانات المضخة ومحركها، إن توفرت، على فهم المعدات المشمولة في الطلب.",
+        ],
+        related: "قد يشمل طلب صيانة المضخة محركها الكهربائي أو نظام مكافحة الحريق الذي تخدمه.",
+      },
+      transformers: {
+        title: "صيانة المحولات وفلترة الزيت وتحسين الكفاءة",
+        steps: [
+          "نقدم صيانة المحولات وفلترة زيتها والعمل على تحسين كفاءتها التشغيلية، لدعم هذا الجزء الأساسي من البنية التحتية الكهربائية.",
+          "وضّح ما إذا كان طلبك يتعلق بالصيانة أو فلترة الزيت أو ملاحظة تخص الكفاءة. أرفق بيانات المحول المتاحة ووصف حالته عند طلب عرض السعر.",
+        ],
+        related:
+          "تخدم المحولات منظومة التغذية الكهربائية، بينما تدعم المولدات ولوحات ATS الطاقة الاحتياطية. وتغطي صيانة المحركات المعدات التي تعتمد على هذه التغذية.",
+      },
+      generators: {
+        title: "صيانة المولدات وبرمجة لوحات ATS",
+        steps: [
+          "نقدم صيانة المولدات وبرمجة لوحات التحويل التلقائي ATS، لدعم جاهزية الطاقة الاحتياطية واستمرارية التشغيل.",
+          "حدّد ما إذا كان الطلب يخص المولد أو لوحة ATS أو كليهما. اذكر مشكلة التشغيل وبيانات المعدات المتاحة لمناقشة نطاق الخدمة المطلوب.",
+        ],
+        related:
+          "تتكامل صيانة المحولات مع أعمال البنية التحتية للتغذية الكهربائية، بينما يغطي تشخيص المحركات معدات كهربائية أخرى داخل المنشأة.",
+      },
+      hvac: {
+        title: "تركيب وصيانة أنظمة التبريد والتدفئة المركزية والتشيلرات",
+        steps: [
+          "نقدم تركيب وتشغيل وصيانة وحدات التبريد والتدفئة المركزية، بما فيها مبردات المياه «التشيلرات». حدّد نوع الوحدة وما إذا كان الطلب لتركيب جديد أو خدمة نظام قائم.",
+          "اذكر احتياج التشغيل أو الصيانة وبيانات المعدات المتاحة. وإذا كان العمل يشمل توزيع الهواء، وضّح متطلبات الدكت المرتبطة به.",
+        ],
+        related:
+          "تخدم أعمال الدكت توزيع الهواء، وقد ترتبط صيانة المضخات بمعدات التبريد التي تعتمد على المياه.",
+      },
+      ducting: {
+        title: "تنفيذ وصيانة الدكت وقواعد التكييف",
+        steps: [
+          "ننفذ ونصون أعمال الدكت وقواعد التكييف لتجهيز ودعم توزيع الهواء ومعدات التكييف داخل المنشأة.",
+          "وضّح ما إذا كان الطلب لتنفيذ دكت أو قواعد جديدة أم لصيانة أعمال قائمة، مع ذكر معدات التكييف المرتبطة بها ومعلومات الموقع المتاحة.",
+        ],
+        related:
+          "تغطي خدمات التكييف المركزي الوحدات المرتبطة بالدكت، وقد تحتاج المحركات الكهربائية في معدات تحريك الهواء إلى صيانة مستقلة.",
+      },
+    },
+  },
   meta: {
     dir: "rtl",
     switchLabel: "English",

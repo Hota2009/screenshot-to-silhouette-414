@@ -1,3 +1,4 @@
+import { homeHref } from "@/lib/service-routes";
 import { AnimatePresence, motion } from "framer-motion";
 import { Languages, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -11,7 +12,7 @@ import { EASE, Logo, scrollToId } from "./primitives";
 const LINKS = ["about", "vision", "values", "services", "clients", "projects", "contact"] as const;
 
 export function Navbar() {
-  const { t, toggle } = useI18n();
+  const { t, lang, toggle } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -46,7 +47,8 @@ export function Navbar() {
 
   const go = (id: string) => {
     setOpen(false);
-    scrollToId(id);
+    if (document.getElementById(id)) scrollToId(id);
+    else window.location.assign(homeHref(lang, id));
   };
 
   return (
@@ -57,7 +59,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
-        <a href="#top" aria-label={t.brand.legal} onClick={(e) => (e.preventDefault(), go("top"))}>
+        <a href={homeHref(lang, "top")} aria-label={t.brand.legal}>
           <Logo tone="light" />
         </a>
 
@@ -65,8 +67,8 @@ export function Navbar() {
           {LINKS.map((id) => (
             <li key={id}>
               <a
-                href={`#${id}`}
-                onClick={(e) => (e.preventDefault(), go(id))}
+                href={homeHref(lang, id)}
+                onClick={() => setOpen(false)}
                 className={cn(
                   "relative rounded-md px-3 py-2 text-sm text-navy-muted transition-colors hover:text-navy-foreground",
                   active === id && "text-navy-foreground",
@@ -95,7 +97,11 @@ export function Navbar() {
             <Languages className="hidden size-4 text-primary-glow sm:block" aria-hidden />
             <span lang={t.meta.dir === "rtl" ? "en" : "ar"}>{t.meta.switchLabel}</span>
           </button>
-          <Button variant="electric" className="hidden h-10 px-5 md:inline-flex" onClick={() => go("contact")}>
+          <Button
+            variant="electric"
+            className="hidden h-10 px-5 md:inline-flex"
+            onClick={() => go("contact")}
+          >
             {t.nav.cta}
           </Button>
           <button
@@ -130,8 +136,8 @@ export function Navbar() {
                   transition={{ delay: 0.05 * i + 0.1, duration: 0.5, ease: EASE }}
                 >
                   <a
-                    href={`#${id}`}
-                    onClick={(e) => (e.preventDefault(), go(id))}
+                    href={homeHref(lang, id)}
+                    onClick={() => setOpen(false)}
                     className="flex items-baseline gap-4 border-b border-navy-line py-4 text-navy-foreground"
                   >
                     <span className="eyebrow text-primary-glow">0{i + 1}</span>

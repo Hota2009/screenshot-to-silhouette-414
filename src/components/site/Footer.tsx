@@ -1,8 +1,9 @@
+import { homeHref } from "@/lib/service-routes";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { CONTACT } from "@/content/site";
+import { CONTACT, ENGINEERS } from "@/content/site";
 import { useI18n } from "@/lib/i18n";
 
 import { Logo, scrollToId } from "./primitives";
@@ -10,7 +11,7 @@ import { Logo, scrollToId } from "./primitives";
 const LINKS = ["about", "vision", "values", "services", "clients", "projects", "contact"] as const;
 
 export function Footer() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   return (
     <footer className="bg-navy-deep text-navy-foreground">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
@@ -24,8 +25,8 @@ export function Footer() {
               {LINKS.map((id) => (
                 <li key={id}>
                   <a
-                    href={`#${id}`}
-                    onClick={(e) => (e.preventDefault(), scrollToId(id))}
+                    href={homeHref(lang, id)}
+
                     className="text-navy-muted transition-colors hover:text-navy-foreground"
                   >
                     {t.nav[id]}
@@ -36,13 +37,13 @@ export function Footer() {
           </nav>
           <div className="grid gap-6 text-sm md:col-span-4">
             <div>
-              <p className="font-semibold">{t.contact.engineer}</p>
+              <p className="font-semibold">{ENGINEERS[0].name[lang]}</p>
               <a
-                href={`tel:${CONTACT.tel}`}
+                href={`tel:${ENGINEERS[0].tel}`}
                 dir="ltr"
                 className="mt-1 block text-navy-muted hover:text-navy-foreground rtl:text-right"
               >
-                {CONTACT.phone}
+                {ENGINEERS[0].phone}
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
@@ -68,7 +69,7 @@ export function Footer() {
 }
 
 export function BackToTop() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 900);

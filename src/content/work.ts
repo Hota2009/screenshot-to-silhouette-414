@@ -28,3 +28,20 @@ export function photosFor(category: WorkCategory, limit?: number) {
   const list = WORK_PHOTOS.filter((p) => p.category === category);
   return limit ? list.slice(0, limit) : list;
 }
+
+/** Red-pipe firefighting installations confirmed by the company, visually reviewed.
+ * Keep the original PDF filenames and pump classification for the main gallery.
+ */
+const FIREFIGHTING_IDS = [
+  "pumps-013",
+  "pumps-021",
+  "pumps-023",
+  "pumps-024",
+  "pumps-025",
+  "pumps-034",
+  "pumps-018",
+  "pumps-019",
+];
+export const FIREFIGHTING_PHOTOS = FIREFIGHTING_IDS.flatMap((id) =>
+  WORK_PHOTOS.filter((photo) => photo.id === id),
+);

@@ -21,7 +21,7 @@ export function Contact({ requestedService }: { requestedService: ServiceId | nu
     company: "",
     phone: "",
     email: "",
-    service: "" as ServiceId | "",
+    service: requestedService ?? ("" as ServiceId | ""),
     message: "",
   });
   const [errors, setErrors] = useState<Set<ContactField>>(new Set());

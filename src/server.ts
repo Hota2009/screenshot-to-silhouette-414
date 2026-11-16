@@ -1,3 +1,4 @@
+import { sitemap, robots } from "./lib/sitemap";
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
@@ -31,7 +32,7 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
   return new Response(renderErrorPage(), {
     status: 500,
-    headers: { "content-type": "text/html; charset=utf-8" },
+    headers: { "content-type": "text/html; charset=utf-8", "X-Robots-Tag": "noindex, follow" },
   });
 }
 
@@ -50,9 +51,25 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      if (new URL(request.url).pathname === "/sitemap.xml")
+        return new Response(sitemap(), {
+          headers: { "content-type": "application/xml; charset=utf-8" },
+        });
+      if (new URL(request.url).pathname === "/robots.txt")
+        return new Response(robots(), { headers: { "content-type": "text/plain; charset=utf-8" } });
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalized = await normalizeCatastrophicSsrResponse(response);
+      if (normalized.status >= 400) {
+        const headers = new Headers(normalized.headers);
+        headers.set("X-Robots-Tag", "noindex, follow");
+        return new Response(normalized.body, {
+          status: normalized.status,
+          statusText: normalized.statusText,
+          headers,
+        });
+      }
+      return normalized;
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {
