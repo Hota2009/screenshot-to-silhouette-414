@@ -197,7 +197,7 @@ const en = {
     label: "About us",
     statement:
       "We go beyond maintenance — we build integrated operating systems that keep equipment performing.",
-    p1: "Engine Experts Maintenance Establishment is a specialized provider of comprehensive solutions in the maintenance and operation of electrical and mechanical equipment. Since its inception, the company has been committed to delivering reliable, integrated technical services that meet the needs of industrial and commercial sectors.",
+    p1: "Engine Experts Maintenance Establishment is a specialized provider of comprehensive solutions in the maintenance and operation of electrical and mechanical equipment. Since its founding in 2016, the company has been committed to delivering reliable, integrated technical services that meet the needs of industrial and commercial sectors.",
     p2: "We rely on highly skilled engineering and technical teams and the latest global technologies to give our clients the highest standards of quality and efficiency, in full compliance with international benchmarks.",
     p3: "Our focus is to help clients enhance performance, minimize downtime and achieve long-term sustainability of their equipment and infrastructure.",
     pillars: [
@@ -554,7 +554,7 @@ const ar: Content = {
     index: "01",
     label: "من نحن",
     statement: "نحن لا نكتفي بالصيانة فقط، بل نطوّر أنظمة عمل متكاملة تحافظ على أداء المعدات.",
-    p1: "مؤسسة خبراء المحرك للصيانة هي مؤسسة متخصصة في تقديم حلول شاملة في مجالات الصيانة والتشغيل للمعدات الكهربائية والميكانيكية. منذ تأسيسها، وضعت المؤسسة نصب عينها تقديم خدمات فنية متكاملة وموثوقة تلبي احتياجات مختلف القطاعات الصناعية والتجارية.",
+    p1: "مؤسسة خبراء المحرك للصيانة هي مؤسسة متخصصة في تقديم حلول شاملة في مجالات الصيانة والتشغيل للمعدات الكهربائية والميكانيكية. منذ تأسيسها عام 2016، وضعت المؤسسة نصب عينها تقديم خدمات فنية متكاملة وموثوقة تلبي احتياجات مختلف القطاعات الصناعية والتجارية.",
     p2: "نعتمد على كوادر هندسية وفنية ذات خبرة عالية، وأحدث التقنيات العالمية، لنضمن لعملائنا أعلى مستويات الجودة والكفاءة، مع التزام كامل بالمعايير الدولية.",
     p3: "نعمل على مساعدة عملائنا على رفع الأداء، وتقليل الأعطال، وتحقيق استدامة طويلة الأمد لمعداتهم وبيئتهم.",
     pillars: [
